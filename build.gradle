@@ -1,0 +1,32 @@
+group 'org.jetbrains'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.1.1'
+
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14"
+    testCompile "org.mockito:mockito-core:2.7.23"
+    testCompile "junit:junit:4.+"
+}
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
